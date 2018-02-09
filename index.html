@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ImagenComponent Demo</title>
+
+    <style media="screen">
+      .main{
+        position: relative;
+        width: 800px;
+      }
+      .main img{
+        width: 100%;
+      }
+      .main .text1{
+        position: absolute;
+          top: 20px;
+          left: 30px;
+        font-family: Helvetica;
+        font-size: 80px;
+        color: blue;
+      }
+      .main .text2{
+        position: absolute;
+        bottom: 50px;
+        right: 60px;
+        font-family: Helvetica;
+        font-size: 60px;
+        color: yellow;
+        font-style: italic;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h2>ImagenComponent Demo</h2>
+    <form class="form" action="index.html" method="post">
+      <input type="text" name="text1" value="Texto 1" />
+      <input type="text" name="text2" value="Texto 2">
+      <input type="button" class="comp" value="Click!">
+    </form>
+    <br/>
+    <div class="main">
+      <img src="paisaje.jpg" alt="">
+      <div class="text1">Texto 1</div>
+      <div class="text2">Texto 2</div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $(function(){
+        $('.comp').on('click', function(){
+          var t1 = $('input[name=text1]').val();
+          var t2 = $('input[name=text2]').val();
+
+          $('.text1').html(t1);
+          $('.text2').html(t2);
+
+          return false;
+        });
+
+      });
+    </script>
+
+
+  </body>
+</html>
