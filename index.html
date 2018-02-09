@@ -35,8 +35,8 @@
   <body>
     <h2>ImagenComponent Demo</h2>
     <form class="form" action="index.html" method="post">
-      <input type="text" name="text1" value="Texto 1" />
-      <input type="text" name="text2" value="Texto 2">
+      <input type="text" name="text1" value="Texto 1" data-div="text1" />
+      <input type="text" name="text2" value="Texto 2" data-div="text2" >
       <input type="button" class="comp" value="Click!">
     </form>
     <br/>
@@ -49,17 +49,19 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
       jQuery(function($){
-        $('.comp').on('click', function(){
-          var t1 = $('input[name=text1]').val();
-          var t2 = $('input[name=text2]').val();
-
-          $('.text1').html(t1);
-          $('.text2').html(t2);
-
-          return false;
+        $('input[type=text]').on('blur', function(){
+          load($(this));
         });
-
       });
+
+      function load($text){
+        var t = $text.val();
+        $('.'+$text.data('div')).text(t);
+      }
+
+      load($('input[name=text1]'));
+      load($('input[name=text2]'));
+
     </script>
 
 
